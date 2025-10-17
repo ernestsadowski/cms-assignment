@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+echo "🔍 Running type check..."
+pnpm typecheck
+
+echo "🧹 Running linter..."
+pnpm lint
+
+# echo "✨ Checking code formatting..."
+# pnpm format:check
+
+echo "✅ Pre-commit checks completed successfully!" 
