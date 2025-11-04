@@ -60,6 +60,7 @@ declare global {
       link?: Link
     }
 
+    interface Feature extends sanityTypes.Feature {}
     interface CustomHTML extends Module<"custom-html"> {
       className?: string
       html?: {

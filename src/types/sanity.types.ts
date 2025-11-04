@@ -13,6 +13,86 @@
  */
 
 // Source: schema.json
+export type FeatureSection = {
+  _type: "feature-section";
+  options?: ModuleOptions;
+  pretitle?: string;
+  title?: string;
+  content?: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "normal"
+          | "heading-1"
+          | "heading-2"
+          | "heading-3"
+          | "heading-4"
+          | "heading-5"
+          | "heading-6"
+          | "body-1"
+          | "body-2"
+          | "body-3"
+          | "body-4"
+          | "body-5";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<
+          | ({
+              _key: string;
+            } & Link)
+          | ({
+              _key: string;
+            } & SimplerColor)
+        >;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }
+    | {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        loading?: "lazy" | "eager";
+        caption?: string;
+        source?: string;
+        _type: "image";
+        _key: string;
+      }
+    | ({
+        _key: string;
+      } & Code)
+    | ({
+        _key: string;
+      } & CustomHtml)
+  >;
+  features?: Array<
+    {
+      _key: string;
+    } & Feature
+  >;
+  ctas?: Array<
+    {
+      _key: string;
+    } & Cta
+  >;
+  assets?: Array<
+    {
+      _key: string;
+    } & Img
+  >;
+};
+
 export type RichtextModule = {
   _type: "richtext-module";
   options?: ModuleOptions;
@@ -465,6 +545,24 @@ export type CardList = {
   visualSeparation?: boolean;
 };
 
+export type Feature = {
+  _type: "feature";
+  name?: string;
+  description?: string;
+  icon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+};
+
 export type RichText = Array<
   | {
       children?: Array<{
@@ -682,6 +780,9 @@ export type GlobalModule = {
     | ({
         _key: string;
       } & SearchModule)
+    | ({
+        _key: string;
+      } & FeatureSection)
   >;
   after?: Array<
     | ({
@@ -702,6 +803,9 @@ export type GlobalModule = {
     | ({
         _key: string;
       } & SearchModule)
+    | ({
+        _key: string;
+      } & FeatureSection)
   >;
 };
 
@@ -731,6 +835,9 @@ export type Page = {
     | ({
         _key: string;
       } & SearchModule)
+    | ({
+        _key: string;
+      } & FeatureSection)
   >;
   metadata?: Metadata;
   language?: string;
@@ -1012,12 +1119,14 @@ export type SanityAssetSourceData = {
 };
 
 export type AllSanitySchemaTypes =
+  | FeatureSection
   | RichtextModule
   | SearchModule
   | HeroSplit
   | Hero
   | CustomHtml
   | CardList
+  | Feature
   | RichText
   | ModuleOptions
   | Logo

@@ -18,6 +18,7 @@ import linkList from "./objects/link.list";
 import metadata from "./objects/metadata";
 import moduleOptions from "./objects/module-options";
 import richText from "./objects/richText";
+import feature from "./objects/feature";
 // modules
 import cardList from "./modules/card-list";
 import customHtml from "./modules/custom-html";
@@ -25,6 +26,7 @@ import hero from "./modules/hero";
 import heroSplit from "./modules/hero.split";
 import richtextModule from "./modules/richtext-module";
 import searchModule from "./modules/search-module";
+import featureSection from "./modules/feature-section";
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   // documents
@@ -45,6 +47,7 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   metadata,
   moduleOptions,
   richText,
+  feature,
 
   // modules
   cardList,
@@ -53,4 +56,5 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   heroSplit,
   searchModule,
   richtextModule,
+  featureSection,
 ];

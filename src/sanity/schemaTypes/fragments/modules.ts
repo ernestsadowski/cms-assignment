@@ -11,6 +11,7 @@ export default defineField({
     { type: "hero.split" },
     { type: "richtext-module" },
     { type: "search-module" },
+    { type: "feature-section" },
   ],
   options: {
     insertMenu: {

@@ -47,7 +47,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => (
         <ConsentManagerDialog />
       </ConsentManagerProvider>
     </body>
-  </Root >
+  </Root>
 );
 
 export default RootLayout;

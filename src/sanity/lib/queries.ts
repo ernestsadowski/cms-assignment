@@ -42,6 +42,12 @@ const CTA_QUERY = `
 	link{ ${LINK_QUERY} }
 `;
 
+const FEATURE_QUERY = `
+	name,
+	description,
+	icon { ${IMAGE_QUERY} }
+`;
+
 export const MODULES_QUERY = `
 	...,
 	ctas[]{
@@ -82,6 +88,10 @@ export const MODULES_QUERY = `
 				'text': pt::text(@)
 			}
 		),
+	},
+	_type == 'feature-section' => {
+		...,
+		features[]{ ${FEATURE_QUERY} }
 	},
 `;
 

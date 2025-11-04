@@ -6,6 +6,7 @@ import Hero from "./Hero";
 import HeroSplit from "./HeroSplit";
 import RichtextModule from "./RichtextModule";
 import SearchModule from "./SearchModule";
+import FeatureSection from "./FeatureSection";
 
 const MODULE_MAP = {
   "card-list": CardList,
@@ -14,6 +15,7 @@ const MODULE_MAP = {
   "hero.split": HeroSplit,
   "richtext-module": RichtextModule,
   "search-module": SearchModule,
+  "feature-section": FeatureSection,
 } as const;
 
 const Modules = ({
