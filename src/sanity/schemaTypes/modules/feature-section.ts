@@ -48,6 +48,15 @@ export default defineType({
       group: "content",
     }),
     defineField({
+      name: "overlayOpacity",
+      title: "Overlay Opacity",
+      type: "number",
+      description: "Adjust the transparency of the background overlay",
+      validation: (Rule) => Rule.min(0).max(100),
+      initialValue: 35,
+      group: "asset",
+    }),
+    defineField({
       name: "assets",
       title: "Assets",
       type: "array",

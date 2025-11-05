@@ -86,6 +86,7 @@ export type FeatureSection = {
       _key: string;
     } & Cta
   >;
+  overlayOpacity?: number;
   assets?: Array<
     {
       _key: string;
